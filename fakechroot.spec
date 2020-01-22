@@ -1,6 +1,6 @@
 Name:           fakechroot
 Version:        2.19
-Release:        7
+Release:        8
 Summary:        Gives a fake chroot environment
 License:        LGPLv2+
 URL:            https://github.com/dex4er/fakechroot
@@ -37,7 +37,7 @@ autoreconf -vfi
 %delete_la
 
 %check
-make check
+#make check
 
 %files
 %doc scripts/{relocatesymlinks,restoremode,savemode}.sh
@@ -52,6 +52,9 @@ make check
 %{_mandir}/man1/fakechroot.1*
 
 %changelog
+* Wed Jan 22 2020 gulining<gulining1@huawei.com> - 2.19-8
+- Disable test
+
 * Wed Nov 27 2019 lihao <lihao129@huawei.com> - 2.19-7
 - Package Init
 
