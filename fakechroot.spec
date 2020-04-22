@@ -8,7 +8,7 @@ Source0:        https://github.com/dex4er/fakechroot/archive/%{version}/fakechro
 
 Patch0000:      0001-Add-support-of-LFS-compatible-fts-functions.patch
 
-Requires:       binutils
+Requires:       binutils binutils-devel
 Provides:       fakechroot-libs = %{version}-%{release}
 Obsoletes:      fakechroot-libs < %{version}-%{release}
 BuildRequires:  autoconf automake libtool perl-podlators perl-generators
