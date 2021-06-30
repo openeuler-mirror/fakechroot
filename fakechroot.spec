@@ -1,12 +1,13 @@
 Name:           fakechroot
 Version:        2.19
-Release:        8
+Release:        9
 Summary:        Gives a fake chroot environment
 License:        LGPLv2+
 URL:            https://github.com/dex4er/fakechroot
 Source0:        https://github.com/dex4er/fakechroot/archive/%{version}/fakechroot-%{version}.tar.gz
 
 Patch0000:      0001-Add-support-of-LFS-compatible-fts-functions.patch
+Patch0001:      0002-fix-glic-2.33-_STAT_VER-not-defined.patch
 
 Requires:       binutils binutils-devel
 Provides:       fakechroot-libs = %{version}-%{release}
@@ -52,6 +53,9 @@ autoreconf -vfi
 %{_mandir}/man1/fakechroot.1*
 
 %changelog
+* Wed Jun 30 2021 caodongxia<caodongxia@huawei.com> - 2.19-9
+- Fix '_STAT_VER' undeclared
+
 * Wed Jan 22 2020 gulining<gulining1@huawei.com> - 2.19-8
 - Disable test
 
