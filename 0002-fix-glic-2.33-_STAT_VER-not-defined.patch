@@ -1,0 +1,33 @@
+From 9d56c292b454eff51bf9bbd60f25497bae43d65e Mon Sep 17 00:00:00 2001
+From: caodongxia <315816521@qq.com>
+Date: Wed, 30 Jun 2021 09:41:47 +0800
+Subject: [PATCH] patch
+Reference：https://bugs.archlinux.org/task/69572
+
+---
+ src/libfakechroot.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/src/libfakechroot.h b/src/libfakechroot.h
+index f395ac4..b546c20 100644
+--- a/src/libfakechroot.h
++++ b/src/libfakechroot.h
+@@ -32,6 +32,15 @@
+ 
+ #define debug fakechroot_debug
+ 
++#ifndef _STAT_VER
++# if defined (__aarch64__)
++#  define _STAT_VER 0
++# elif defined (__x86_64__)
++#  define _STAT_VER 1
++# else
++#  define _STAT_VER 3
++# endif
++#endif
+ 
+ #ifdef HAVE___ATTRIBUTE__VISIBILITY
+ # define LOCAL __attribute__((visibility("hidden")))
+-- 
+2.27.0
+
